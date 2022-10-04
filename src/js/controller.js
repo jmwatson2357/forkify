@@ -71,13 +71,11 @@ const controlServings = function (newServings) {
     model.updateServings(newServings);
 
     // Update the recipe view
-    // recipeView.render(model.state.recipe);
     recipeView.update(model.state.recipe);
 };
 
 const controlAddBookmark = function () {
     // 1) Add/remove bookmark
-    // debugger;
     if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
     else model.deleteBookmark(model.state.recipe.id);
 
@@ -121,10 +119,6 @@ const controlAddRecipe = async function (newRecipe) {
     }
 };
 
-const newFeature = function () {
-    console.log('Welcome to the application!');
-};
-
 const init = function () {
     bookmarksView.addHandlerRender(controlBookmarks);
     recipeView.addHandlerRender(controlRecipes);
@@ -133,7 +127,6 @@ const init = function () {
     searchView.addHandlerSearch(controlSearchResults);
     paginationView.addHandlerClick(controlPagination);
     addRecipeView.addHandlerUpload(controlAddRecipe);
-    newFeature();
 };
 
 init();
